@@ -1,12 +1,27 @@
 let userName = prompt("Digite seu Nome: ");
-let userWeight = prompt("Digite seu seu peso(Kg): ");
-let userAltura = prompt("Digite sua altura, com os decimais: ");
+let userWeight = Number(prompt("Digite seu seu peso(Kg): "));
+let userAltura = Number(prompt("Digite sua altura, com os decimais: "));
+let vision = window.document.body;
+vision.style.display = 'block';
 
-//ou Math.pow(userAltura, 2)
-let imc = (userWeight / (userAltura ** 2)).toFixed(1) //uma casa decimal
+let imc = undefined;
 let classification = undefined;
 let obesity = undefined;
 
+verific();
+
+function verific(){
+    if(Number.isNaN(userAltura) || userAltura == 0){ //expressão booleana == true, abertura e fechamento de chaves --> corpo em JS
+        alert("The Altura needs be a number");
+        userAltura = Number(prompt("Digite sua altura, com os decimais: "));
+        verific();
+    } else { //se for um number calculará o IMC normalmente
+        //ou Math.pow(userAltura, 2)
+        imc = (userWeight / (userAltura ** 2)).toFixed(1) //uma casa decimal
+    }
+}
+
+// ifs aninhados
 if(imc < 18.5){
     classification = "Magreza";
     obesity = 0;
@@ -52,4 +67,43 @@ function tema(){
         but.textContent = 'Ligth';
     }
     cont ++;
+}
+
+function capturarResultado(){
+    const opcoes = document.querySelectorAll('input[name="opcoes"]');
+    let escolha = undefined;
+    for(const opcao of opcoes){
+        if(opcao.checked){
+            escolha = opcao.value;
+            break;
+        }
+    }
+    return escolha;
+}
+
+function calculate(){
+    let operation = capturarResultado();
+    let result = undefined;
+    let input1 = Number(document.querySelector('#n1').value);
+    let input2 = Number(document.querySelector('#n2').value);
+    let resultado = document.querySelector("#final")
+    switch(operation){
+        case '+':
+            result = input1 + input2;
+            break;
+        case '-':
+            result = input1 - input2;
+            break;
+        case '*':
+            result = input1 * input2;
+            break;
+        case '/':
+            result = input1 / input2;
+            break;
+        default:
+            result = "Operador inválido";
+            break;
+
+    }
+    resultado.innerHTML = result;
 }

@@ -2,8 +2,25 @@ body {
     background-color: black;
     color: white;
     font-family: 'Times New Roman';
+    display: none;
 }
 
 .center {
     text-align: center;
+}
+
+.container {
+    display: inline-block;
+    margin-left: 10px;
+    background-color: gray;
+    width: 100px;
+    height: 20px;
+}
+
+button {
+    display: inline-block;
+}
+
+input[type="radio"]:checked + label {
+    color: red;
 }

@@ -10,6 +10,28 @@
     <button id="col" onclick="tema()">Ligth</button>
     <h1 class="center">Site Interpretador de IMC:</h1>
     <div id="imc"></div>
+    <h2>Calculator:</h2>
+    <div id="calc">
+        <input type="text" name="first_number" id="n1" class="center">
+        
+        <input type="radio" name="opcoes" id="+" value="+">
+        <label for="+">+</label>
+
+        <input type="radio" name="opcoes" id="-" value="-">
+        <label for="-">-</label>
+
+        <input type="radio" name="opcoes" id="*" value="*">
+        <label for="*">*</label>
+
+        <input type="radio" name="opcoes" id="/" value="/">
+        <label for="/">/</label>
+
+        <input type="text" name="second_number" id="n2" class="center">
+
+        <button id="result" onclick="calculate()">=</button>
+
+        <div class="container center" id="final"></div>
+    </div>
     <script src="js/script.js"></script>
 </body>
 </html>
